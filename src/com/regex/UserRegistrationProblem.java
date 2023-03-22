@@ -67,7 +67,7 @@ public class UserRegistrationProblem {
     public static boolean validPassword() {
         System.out.println("Enter the password to check: Hint:- Minimum 8 characters: ");
         String passWord = sc.nextLine();
-        boolean result = Pattern.matches("^[0-9A-Za-z]{8,}$",passWord);
+        boolean result = Pattern.matches("^[0-9A-Za-z]{7,}[@!#$%^&*]{1}$",passWord);
         if (result) {
             System.out.println("The entered password is valid.");
         } else {
