@@ -46,11 +46,22 @@ public class UserRegistrationProblem {
         Pattern p = Pattern.compile(regex);
         Matcher m = p.matcher(emailId);
         boolean result = m.matches();
-        // if condition is to check the Last name is valid or not
+        // if condition is to check the email id is valid or not
         if (result)
             System.out.println("Your email id is valid");
         else
             System.out.println("Your Email Id is invalid");
         return result;
+    }
+    public static boolean validPhoneNumber(){
+        System.out.println("Enter the phone number ");
+        String phoneNumber = sc.nextLine();
+        boolean result2 = Pattern.matches("^91\\s[0-9]{10}$", phoneNumber);
+        // if condition is to check the phone number is valid or not
+        if (result2)
+            System.out.println("Your Phone number is valid");
+        else
+            System.out.println("Your Phone number is invalid");
+        return result2;
     }
 }
