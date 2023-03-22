@@ -1,34 +1,56 @@
 package com.regex;
 
 import java.util.Scanner;
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class UserRegistrationProblem {
 
     static Scanner sc = new Scanner(System.in);
 
-    public static void main(String[] args) {
-
-        System.out.println("Welcome to the User Registration Problem");
-        System.out.println("Enter your first name. HINT:-'First name starts with Cap and has minimum 3 characters': ");
-        String firstName = sc.nextLine();
-        /*First name starts with Cap and has minimum 3 characters
-         */
-        boolean result1 = Pattern.matches("^[A-Z]{1}[a-z]{2,}$", firstName);
-        if (result1) {
-            System.out.println("Entered First name is Valid");
-        }else {
-            System.out.println("Entered First name is Invalid");
-        }
-        System.out.println("Enter your last name. HINT:-'Last name starts with Cap and has minimum 3 characters': ");
-        String lastName = sc.nextLine();
-        /*Last name starts with Cap and has minimum 3 characters
-         */
-        boolean result2 = Pattern.matches("^[A-Z]{1}[a-z]{2,}$", lastName);
-        if (result2) {
-            System.out.println("Entered Last name is Valid");
-        }else {
-            System.out.println("Entered Last name is Invalid");
-        }
+    public static boolean validFirstName() {
+        System.out.println("Enter Your first name");
+        String name = sc.next();
+        //regix function is used to check the first name
+        String regix = "^[A-Z]{1}[a-z]{2,}$";
+        Pattern p = Pattern.compile(regix);
+        Matcher m = p.matcher(name);
+        boolean result = m.matches();
+        // if condition is to check the first name is valid or not
+        if (result)
+            System.out.println("Your First name is valid");
+        else
+            System.out.println("Your First name is invalid");
+        return result;
+    }
+    public static boolean validLastName() {
+        System.out.println("Enter the Last name");
+        String nameLast = sc.next();
+        //regix function is used to check the first name
+        String regix = "^[A-Z]{1}[a-z]{2,}$";
+        Pattern p = Pattern.compile(regix);
+        Matcher m = p.matcher(nameLast);
+        boolean result = m.matches();
+        // if condition is to check the Last name is valid or not
+        if (result)
+            System.out.println("Your Last name is valid");
+        else
+            System.out.println("Your Last name is invalid");
+        return result;
+    }
+    // taking ValidEmailId method
+    public static boolean validEmailId(){
+        System.out.println("Enter the email id ");
+        String emailId = sc.next();
+        String regex = "^[a-z]{3}[a-zA-z.]{0,}+@+bl.co+[a-z]{0,}$";
+        Pattern p = Pattern.compile(regex);
+        Matcher m = p.matcher(emailId);
+        boolean result = m.matches();
+        // if condition is to check the Last name is valid or not
+        if (result)
+            System.out.println("Your email id is valid");
+        else
+            System.out.println("Your Email Id is invalid");
+        return result;
     }
 }
